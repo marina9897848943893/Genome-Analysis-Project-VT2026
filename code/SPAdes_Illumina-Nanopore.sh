@@ -3,7 +3,7 @@
 #SBATCH -A uppmax2026-1-61 
 #SBATCH -p pelle 
 #SBATCH -c 1
-#SBATCH -t 00:05:00 
+#SBATCH -t 03:00:00 
 #SBATCH -J SPAdes_Illumina-Nanopore 
 #SBATCH --mail-type=ALL 
 
