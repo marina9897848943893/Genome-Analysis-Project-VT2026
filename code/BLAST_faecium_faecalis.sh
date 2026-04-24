@@ -3,7 +3,7 @@
 #SBATCH -A uppmax2026-1-61
 #SBATCH -p pelle
 #SBATCH -c 2
-#SBATCH -t 02:00:00
+#SBATCH -t 01:00:00
 #SBATCH -J BLAST_faecium_faecalis
 #SBATCH --mail-type=ALL
 
@@ -22,7 +22,7 @@ makeblastdb \
     -dbtype nucl \
     -out E_faecalis_db
 
-# BLAST on contigs fasta sequence to identify the plasmids
+# BLAST to compare genomes
 cd /home/marinky/Genome-Analysis-Project-VT2026/code
 
 blastn \
@@ -31,3 +31,10 @@ blastn \
         -out /home/marinky/Genome-Analysis-Project-VT2026/results/Genome_Assembly/PacBio/BLAST-synteny/BLAST_faecium_faecalis_results.txt \
 	-outfmt 6 \
 	-num_threads 2
+
+blastn \
+	-query /home/marinky/Genome-Analysis-Project-VT2026/results/Genome_Assembly/PacBio/Canu-assembly-PacBio/E.faeciumE745.contigs.fasta \
+        -db /home/marinky/Genome-Analysis-Project-VT2026/results/Genome_Assembly/E_faecalis/E_faecalis_db \
+        -out /home/marinky/Genome-Analysis-Project-VT2026/results/Genome_Assembly/PacBio/BLAST-synteny/BLAST_faecium_faecalis_results.tsv \
+        -outfmt 6 \
+        -num_threads 2
