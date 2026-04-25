@@ -3,7 +3,7 @@
 #SBATCH -A uppmax2026-1-61
 #SBATCH -p pelle
 #SBATCH -c 2
-#SBATCH -t 05:00:00
+#SBATCH -t 24:00:00
 #SBATCH -J BLAST_separated_plasmids
 #SBATCH --mail-type=ALL
 #SBATCH --output=BLAST_separated_plasmids.out
