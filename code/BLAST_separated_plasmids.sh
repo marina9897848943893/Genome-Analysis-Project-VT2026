@@ -3,7 +3,7 @@
 #SBATCH -A uppmax2026-1-61
 #SBATCH -p pelle
 #SBATCH -c 2
-#SBATCH -t 24:00:00
+#SBATCH -t 10:00:00
 #SBATCH -J BLAST_separated_plasmids
 #SBATCH --mail-type=ALL
 #SBATCH --output=BLAST_separated_plasmids.out
@@ -45,7 +45,7 @@ do
         -query "$file" \
         -db /sw/data/blast_databases/nt \
         -out "${base}_blast.txt" \
-        -outfmt 6 \
+        -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore sscinames stitle" \
         -num_threads 2
 done
 
