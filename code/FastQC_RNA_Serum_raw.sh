@@ -12,6 +12,6 @@
 # Load modules
 module load FastQC/0.12.1-Java-17
 
-# FastQC on Illumina reads
+# FastQC on raw serum reads
 fastqc /home/marinky/Genome_Analysis/1_Zhang_2017/transcriptomics_data/RNA-Seq_Serum/raw/* \
         --outdir /home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/QC_Serum_raw
