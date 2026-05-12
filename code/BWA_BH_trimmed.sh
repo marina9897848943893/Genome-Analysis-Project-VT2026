@@ -1,0 +1,50 @@
+#!/bin/bash -l
+
+#SBATCH -A uppmax2026-1-61
+#SBATCH -p pelle
+#SBATCH -c 1
+#SBATCH -t 05:00:00
+#SBATCH -J BWA-BH-trimmed
+#SBATCH --mail-type=ALL
+
+#SBATCH --output=BWA-BH-trimmed.out
+
+# Load modules
+module load BWA/0.7.19-GCCcore-13.3.0
+module load SAMtools/1.22.1-GCC-13.3.0
+
+# Paths
+INPUT_DIR=/home/marinky/Genome_Analysis/1_Zhang_2017/transcriptomics_data/RNA-Seq_BH/trimmed
+
+OUTDIR=/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/BAM-BH
+
+REF_GENOME=/home/marinky/Genome-Analysis-Project-VT2026/results/Genome_Assembly/PacBio/Canu-assembly-PacBio/E.faeciumE745.contigs.fasta
+
+# Index reference genome
+bwa index $REF_GENOME
+
+# Loop for all paired sequences
+for SAMPLE in ERR1797972 ERR1797973 ERR1797974
+do
+    READ1=${INPUT_DIR}/trim_paired_${SAMPLE}_pass_1.fastq.gz
+    READ2=${INPUT_DIR}/trim_paired_${SAMPLE}_pass_2.fastq.gz
+
+    OUT_SAM=${OUTDIR}/${SAMPLE}.sam
+    OUT_BAM=${OUTDIR}/${SAMPLE}.sorted.bam
+
+    # BWA on BH trimmed paired sequences
+    bwa mem -M $REF_GENOME $READ1 $READ2 > $OUT_SAM
+
+    # Convert SAM to BAM and then sort
+    samtools view -b $OUT_SAM | \
+    samtools sort -o $OUT_BAM
+    
+    # Index BAM
+    samtools index $OUT_BAM
+
+    # Remove SAM
+    rm $OUT_SAM
+
+done
+
+
