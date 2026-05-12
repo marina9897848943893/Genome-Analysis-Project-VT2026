@@ -32,7 +32,7 @@ do
     OUT_SAM=${OUTDIR}/${SAMPLE}.sam
     OUT_BAM=${OUTDIR}/${SAMPLE}.sorted.bam
 
-    # BWA on BH trimmed paired sequences
+    # BWA on Serum trimmed paired sequences
     bwa mem -M $REF_GENOME $READ1 $READ2 > $OUT_SAM
 
     # Convert SAM to BAM and then sort
