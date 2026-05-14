@@ -23,6 +23,6 @@ GFF=/home/marinky/Genome-Analysis-Project-VT2026/results/Genome_Assembly/PacBio/
 
 for SAMPLE in ERR1797972 ERR1797973 ERR1797974
 do
-    htseq-count -f bam -r pos -s no -t gene -i locus_tag \
+    htseq-count -f bam -r pos -s no -t CDS -i locus_tag \
     $BAMDIR/${SAMPLE}.sorted.bam $GFF > $OUTDIR/${SAMPLE}_counts.txt
 done
