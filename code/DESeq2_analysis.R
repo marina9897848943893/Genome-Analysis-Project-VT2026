@@ -42,6 +42,7 @@ dds <- DESeqDataSetFromHTSeqCount(
 )
 
 # Run differential expression
+dds$condition <- relevel(dds$condition, ref = "BH") 
 dds <- DESeq(dds)
 
 # Extract results
