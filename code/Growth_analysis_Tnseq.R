@@ -111,12 +111,15 @@ dev.off()
 # Identify genes required for growth in human serum
 
 # Read results
-res <- as.data.frame(res_serum_vs_bhi)
+# Use full DESeq2 results (not the sorted table)
+res <- as.data.frame(results(dds, contrast = c("condition","Serum","BHI")))
 res$GeneID <- rownames(res)
-res <- na.omit(res)
+
+# Filter for fitness genes (moderate depletion allowed)
+fitness_genes <- subset(res, !is.na(padj) & log2FoldChange < -0.7 & padj < 0.1)
 
 # Fitness genes = depleted in Serum (mutants die)
-fitness_genes <- subset(res, log2FoldChange < -0.7 & padj < 0.1)
+#fitness_genes <- subset(res, log2FoldChange < -0.7 & padj < 0.1)
 
 
 # Load annotation
