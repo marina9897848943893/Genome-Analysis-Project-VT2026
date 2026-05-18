@@ -147,3 +147,5 @@ write.csv(
 
 cat("Total significant genes (Serum vs BHI):", nrow(subset(res, padj < 0.05)), "\n")
 cat("Genes REQUIRED for growth in human serum:", nrow(fitness_genes), "\n")
+
+subset(fitness_annotated, grepl("pur|pyr|phosphotransferase|PTS|nucleotide", product, ignore.case = TRUE))
