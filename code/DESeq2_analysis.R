@@ -75,38 +75,39 @@ plotMA(res,
 dev.off()
 
 # Volcano plot
+#BiocManager::install("EnhancedVolcano")
 #library("EnhancedVolcano")
 
 #pdf("/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/Differential-expression/volcano_plot.pdf")
 
 #EnhancedVolcano(res,
- #   lab = rownames(res),
- #  x = 'log2FoldChange',
- #   y = 'pvalue',
- #   pCutoff = 0.05,
- #   FCcutoff = 1.5,
- #   title = 'Serum vs BH')
+ # lab = rownames(res),
+ # x = 'log2FoldChange',
+ # y = 'pvalue',
+ # pCutoff = 0.05,
+ # FCcutoff = 1.5,
+ # title = 'Serum vs BH')
 
 #dev.off()
 
 # PCA plot
 # transform counts for visualization
-vsd <- vst(dds, blind = FALSE)
+#vsd <- vst(dds, blind = FALSE)
 
 # PCA plot
-pcaData <- plotPCA(vsd, intgroup = "condition", returnData = TRUE)
+#pcaData <- plotPCA(vsd, intgroup = "condition", returnData = TRUE)
 
-percentVar <- round(100 * attr(pcaData, "percentVar"))
+#percentVar <- round(100 * attr(pcaData, "percentVar"))
 
-library(ggplot2)
+#library(ggplot2)
 
-pdf("/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/Differential-expression/PCA_plot.pdf")
+#pdf("/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/Differential-expression/PCA_plot.pdf")
 
-ggplot(pcaData, aes(PC1, PC2, color = condition)) +
-    geom_point(size = 4) +
-    xlab(paste0("PC1: ", percentVar[1], "% variance")) +
-    ylab(paste0("PC2: ", percentVar[2], "% variance")) +
-    ggtitle("PCA of RNA-seq samples (Serum vs BH)") +
-    theme_minimal()
+#ggplot(pcaData, aes(PC1, PC2, color = condition)) +
+ #   geom_point(size = 4) +
+ #   xlab(paste0("PC1: ", percentVar[1], "% variance")) +
+ #   ylab(paste0("PC2: ", percentVar[2], "% variance")) +
+ #   ggtitle("PCA of RNA-seq samples (Serum vs BH)") +
+ #   theme_minimal()
 
-dev.off()
+#dev.off()
