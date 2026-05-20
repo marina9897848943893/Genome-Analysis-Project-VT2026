@@ -13,11 +13,11 @@
 module load HTSeq/2.1.2-gfbf-2024a
 
 # Paths
-OUTDIR_BHI=/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/Genes-growth/BHI
+OUTDIR_BHI=/home/marinky/Genome-Analysis-Project-VT2026/results/Tn-seq/BHI
 
-OUTDIR_HSerum=/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/Genes-growth/HSerum
+OUTDIR_HSerum=/home/marinky/Genome-Analysis-Project-VT2026/results/Tn-seq/HSerum
 
-OUTDIR_Serum=/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/Genes-growth/Serum
+OUTDIR_Serum=/home/marinky/Genome-Analysis-Project-VT2026/results/Tn-seq/Serum
 
 BAMDIR=/proj/uppmax2026-1-61/nobackup/Marina2/SAM_files
 
