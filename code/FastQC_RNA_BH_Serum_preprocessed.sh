@@ -13,7 +13,7 @@
 module load FastQC/0.12.1-Java-17
 
 # FastQC on trimmed BH reads
-TRIM_DIR=/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/Trim_BH
+TRIM_DIR=/proj/uppmax2026-1-61/nobackup/Marina2/Trimmed
 OUT_BH=/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/QC_Trim_BH
 OUT_SERUM=/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/QC_Trim_Serum
 
