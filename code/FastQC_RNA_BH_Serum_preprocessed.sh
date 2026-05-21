@@ -14,8 +14,8 @@ module load FastQC/0.12.1-Java-17
 
 # FastQC on trimmed BH reads
 TRIM_DIR=/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/Trim_BH
-OUT_BH=/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/FastQC_Trim_BH
-OUT_SERUM=/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/FastQC_Trim_Serum
+OUT_BH=/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/QC_Trim_BH
+OUT_SERUM=/home/marinky/Genome-Analysis-Project-VT2026/results/RNA-seq/QC_Trim_Serum
 
 for SAMPLE in ERR1797972 ERR1797973 ERR1797974
 do
